@@ -13,7 +13,7 @@ public class Triangle {
 	}
 
 	/**
-	 * Le constructor de la classe Triangle quand il y a 3 parametre. Le conostructor va appeler le constructor setCotes
+	 * Le constructor de la classe Triangle quand il y a 3 parametre. Le constructor va appeler le methode setCotes
 	 * @param coteAB
 	 * @param coteAC
 	 * @param coteBC
@@ -115,11 +115,15 @@ public class Triangle {
 	 */
 
 	public boolean estEgal(Triangle triangle) {
-		
-		if(estEgalCote(triangle.coteAB) && estEgalCote(triangle.coteBC) && estEgalCote(triangle.coteAC)){
-			return true;
+		if (getPerimetre() == triangle.getPerimetre()) {
+			if(estEgalCote(triangle.coteAB, this) && estEgalCote(triangle.coteBC, this)
+					       && estEgalCote(triangle.coteAC, this)){
+				if(estEgalCote(this.coteAB, triangle) && estEgalCote(this.coteBC, triangle)
+					       && estEgalCote(this.coteAC, triangle)){
+					return true;
+				}
+			}
 		}
-		
 		return false;
  	}
 	
@@ -127,8 +131,8 @@ public class Triangle {
 	 * le methode va retouner si le cote du triangle est egal a un des cotes du triangle 
 	 * @return
 	 */
-	private boolean estEgalCote(double coteTriangle) {
-		if(coteTriangle == coteAB || coteTriangle == coteBC || coteTriangle == coteAC) {
+	private boolean estEgalCote(double coteTriangle, Triangle triangle) {
+		if(coteTriangle == triangle.coteAB || coteTriangle == triangle.coteBC || coteTriangle == triangle.coteAC) {
 			return true;
 		}
 		return false;
@@ -156,11 +160,11 @@ public class Triangle {
 	 */
 	
 	private boolean estEgalAngle(double angleTriangle) {
-		double angleAB = getAngleA();
-		double angleBC = getAngleB();
-		double angleAC = getAngleC();
+		double angleA = getAngleA();
+		double angleB = getAngleB();
+		double angleC = getAngleC();
 		
-		if(angleTriangle == angleAB || angleTriangle == angleBC || angleTriangle == angleAC) {
+		if(angleTriangle == angleA || angleTriangle == angleB || angleTriangle == angleC) {
 			return true;
 		}
 		return false;
