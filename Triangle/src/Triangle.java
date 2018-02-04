@@ -143,14 +143,21 @@ public class Triangle {
 	 * @return
 	 */
 	public boolean estSemblables(Triangle triangle) {
-		double angleAB = triangle.getAngleA();
-		double angleBC = triangle.getAngleB();
-		double angleAC = triangle.getAngleC();
+		double triangleA [] = new double [3];
+		triangleA[0] = triangle.getAngleA();
+		triangleA[1] = triangle.getAngleB();
+		triangleA[2] = triangle.getAngleC();
 		
-		if(estEgalAngle(angleAB) && estEgalAngle(angleBC) && estEgalAngle(angleAC)){
-			return true;
+		double triangleB [] = new double [3];
+		triangleB[0] = getAngleA();
+		triangleB[1] = getAngleB();
+		triangleB[2] = getAngleC();
+		
+		if (description() == triangle.description()) {
+			if(estEgalAngle(triangleA, triangleB) && estEgalAngle(triangleB, triangleA) ){
+				return true;
+			}
 		}
-		
 		return false;
 	}
 	
@@ -159,12 +166,17 @@ public class Triangle {
 	 * @return
 	 */
 	
-	private boolean estEgalAngle(double angleTriangle) {
-		double angleA = getAngleA();
-		double angleB = getAngleB();
-		double angleC = getAngleC();
-		
-		if(angleTriangle == angleA || angleTriangle == angleB || angleTriangle == angleC) {
+	private boolean estEgalAngle(double [] triangleA, double [] triangleB) {
+		int valeur = 0;
+		for (int i = 0; i < triangleA.length; i++) {
+			for (int j = 0; j < triangleA.length; j++) {
+				if (triangleA[i] == triangleB[j]) {
+					valeur++;
+					break;
+				}
+			}
+		}
+		if (valeur == 3) {
 			return true;
 		}
 		return false;
@@ -197,12 +209,9 @@ public class Triangle {
 	}
 	
 	
-
+//Bonus
 	
 
-	
-
-	
 
 
 

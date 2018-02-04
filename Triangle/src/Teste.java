@@ -3,11 +3,12 @@ public class Teste {
 
 	public static void main(String[] args) {
 		Triangle a = new Triangle();
-		a.setCotes(9, 9, 8);
+		a.setCotes(8, 10, 10);
 		Triangle b = new Triangle();
-		b.setCotes(8, 9, 9);
+		b.setCotes(80, 100, 80);
 		System.out.println(a.getPerimetre());
 		System.out.println(a.getAire());
+		System.out.println(b.getAire());
 		System.out.println(a.getAngleA());
 		System.out.println(a.getAngleB());
 		System.out.println(a.getAngleC());
