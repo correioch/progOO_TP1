@@ -9,6 +9,9 @@ public class Triangle {
 	 * Le constuctor de la classe Triangle sans parametre
 	 */
 	public Triangle(){
+		this.coteAB = 1;
+		this.coteBC = 1;
+		this.coteAC = 1;
 		
 	}
 
@@ -73,7 +76,7 @@ public class Triangle {
 	 */
 	public double getAire() {
 		double p =  getPerimetre()/2;
-		double s = Math.sqrt(p*(p-coteAB)*(p-coteAC)*(p-coteBC));
+		double s = Math.sqrt(p*(p-this.coteAB)*(p-this.coteAC)*(p-this.coteBC));
 		return s;
 	}
 
@@ -106,7 +109,7 @@ public class Triangle {
 	 * @return
 	 */
 	public double getPerimetre() {
-		return coteAB + coteAC + coteBC;
+		return this.coteAB + this.coteAC + this.coteBC;
 	}
 	
 	/**
@@ -149,9 +152,9 @@ public class Triangle {
 		triangleA[2] = triangle.getAngleC();
 		
 		double triangleB [] = new double [3];
-		triangleB[0] = getAngleA();
-		triangleB[1] = getAngleB();
-		triangleB[2] = getAngleC();
+		triangleB[0] = this.getAngleA();
+		triangleB[1] = this.getAngleB();
+		triangleB[2] = this.getAngleC();
 		
 		if (description() == triangle.description()) {
 			if(estEgalAngle(triangleA, triangleB) && estEgalAngle(triangleB, triangleA) ){

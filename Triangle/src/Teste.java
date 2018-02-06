@@ -3,9 +3,9 @@ public class Teste {
 
 	public static void main(String[] args) {
 		Triangle a = new Triangle();
-		a.setCotes(8, 10, 10);
+		a.setCotes(8, 10, 8);
 		Triangle b = new Triangle();
-		b.setCotes(80, 100, 80);
+		b.setCotes(10, 10, 8);
 		System.out.println(a.getPerimetre());
 		System.out.println(a.getAire());
 		System.out.println(b.getAire());
