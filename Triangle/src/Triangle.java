@@ -118,25 +118,21 @@ public class Triangle {
 	 */
 
 	public boolean estEgal(Triangle triangle) {
+		
+		double triangleA [] = new double [3];
+		triangleA[0] = triangle.getAngleA();
+		triangleA[1] = triangle.getAngleB();
+		triangleA[2] = triangle.getAngleC();
+		
+		double triangleB [] = new double [3];
+		triangleB[0] = this.getAngleA();
+		triangleB[1] = this.getAngleB();
+		triangleB[2] = this.getAngleC();
+		
 		if (getPerimetre() == triangle.getPerimetre()) {
-			if(estEgalCote(triangle.coteAB, this) && estEgalCote(triangle.coteBC, this)
-					       && estEgalCote(triangle.coteAC, this)){
-				if(estEgalCote(this.coteAB, triangle) && estEgalCote(this.coteBC, triangle)
-					       && estEgalCote(this.coteAC, triangle)){
-					return true;
-				}
+			if(estEgalTableau(triangleA, triangleB) && estEgalTableau(triangleB, triangleA) ){
+				return true;
 			}
-		}
-		return false;
- 	}
-	
-	/**
-	 * le methode va retouner si le cote du triangle est egal a un des cotes du triangle 
-	 * @return
-	 */
-	private boolean estEgalCote(double coteTriangle, Triangle triangle) {
-		if(coteTriangle == triangle.coteAB || coteTriangle == triangle.coteBC || coteTriangle == triangle.coteAC) {
-			return true;
 		}
 		return false;
  	}
@@ -156,8 +152,8 @@ public class Triangle {
 		triangleB[1] = this.getAngleB();
 		triangleB[2] = this.getAngleC();
 		
-		if (description() == triangle.description()) {
-			if(estEgalAngle(triangleA, triangleB) && estEgalAngle(triangleB, triangleA) ){
+		if (triangleA[0] + triangleA[1] + triangleA[2] == triangleB[0] + triangleB[1] + triangleB[2]) {
+			if(estEgalTableau(triangleA, triangleB) && estEgalTableau(triangleB, triangleA) ){
 				return true;
 			}
 		}
@@ -165,11 +161,11 @@ public class Triangle {
 	}
 	
 	/**
-	 * le methode va retouner si le angle du triangle est egal a un des angles du triangle 
+	 * le methode va retouner si le tableau A est egal au tableau B
 	 * @return
 	 */
 	
-	private boolean estEgalAngle(double [] triangleA, double [] triangleB) {
+	private boolean estEgalTableau(double [] triangleA, double [] triangleB) {
 		int valeur = 0;
 		for (int i = 0; i < triangleA.length; i++) {
 			for (int j = 0; j < triangleA.length; j++) {
