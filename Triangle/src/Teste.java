@@ -3,7 +3,7 @@ public class Teste {
 
 	public static void main(String[] args) {
 		Triangle a = new Triangle();
-		a.setCotes(8, 10, 8);
+		a.setCotes(10, 10, 8);
 		Triangle b = new Triangle();
 		b.setCotes(10, 10, 8);
 		System.out.println(a.getPerimetre());
@@ -18,6 +18,7 @@ public class Teste {
 		System.out.println(a.getCoteAB());
 		System.out.println(b.getCoteAB());
 		System.out.println(a.description());
+		System.out.println(b.description());
 
 	}
 }

@@ -151,10 +151,19 @@ public class Triangle {
 		triangleB[0] = this.getAngleA();
 		triangleB[1] = this.getAngleB();
 		triangleB[2] = this.getAngleC();
+		String descA = this.description();
+		String descB = triangle.description();
 		
-		if (triangleA[0] + triangleA[1] + triangleA[2] == triangleB[0] + triangleB[1] + triangleB[2]) {
+		
+		if (descA == descB) {
 			if(estEgalTableau(triangleA, triangleB) && estEgalTableau(triangleB, triangleA) ){
-				return true;
+				if (descA == "Isosceles retangle" || descA == "Isosceles" ) {
+					if(estEgalIsosceles(triangleA, triangleB) == 5){
+						return true;
+					}
+				}else {
+					return true;
+				}
 			}
 		}
 		return false;
@@ -179,6 +188,23 @@ public class Triangle {
 			return true;
 		}
 		return false;
+ 	}
+	
+	/**
+	 * le methode va retouner le nombre de cote egal.
+	 * @return
+	 */
+	
+	private int estEgalIsosceles(double [] triangleA, double [] triangleB) {
+		int valeur = 0;
+		for (int i = 0; i < triangleA.length; i++) {
+			for (int j = 0; j < triangleA.length; j++) {
+				if (triangleA[i] == triangleB[j]) {
+					valeur++;
+				}
+			}
+		}
+		return valeur;
  	}
 	
 	/**
