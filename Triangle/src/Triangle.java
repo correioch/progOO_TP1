@@ -1,4 +1,10 @@
 
+/**
+	 Nom: Carlos Henrique Lopes
+	 date: 12/02/2018
+	 
+*/
+
 public class Triangle {
 
 	private double coteAB;

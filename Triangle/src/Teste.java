@@ -5,7 +5,7 @@ public class Teste {
 		Triangle a = new Triangle();
 		a.setCotes(10, 10, 8);
 		Triangle b = new Triangle();
-		b.setCotes(10, 10, 8);
+		b.setCotes(100, 100, 80);
 		System.out.println(a.getPerimetre());
 		System.out.println(a.getAire());
 		System.out.println(b.getAire());
