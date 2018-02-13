@@ -51,7 +51,7 @@ public class Triangle {
 	 * @return
 	 */
 	public  double getAngleA() {
-		return Math.toDegrees(Math.acos((((coteAB*coteAB) + (coteAC * coteAC) - (coteBC * coteBC)) / (2 * coteAB * coteAC)))) ;
+		return Math.round(Math.toDegrees(Math.acos((((coteAB*coteAB) + (coteAC * coteAC) - (coteBC * coteBC)) / (2 * coteAB * coteAC))))*10000)/10000.0 ;
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class Triangle {
 	 * @return
 	 */
 	public double getAngleB() {
-		return Math.toDegrees(Math.acos((((coteAB*coteAB) + (coteBC * coteBC) - (coteAC * coteAC)) / (2 * coteAB * coteBC)))) ;
+		return Math.round(Math.toDegrees(Math.acos((((coteAB*coteAB) + (coteBC * coteBC) - (coteAC * coteAC)) / (2 * coteAB * coteBC))))*10000)/10000.0 ;
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class Triangle {
 	 * @return
 	 */
 	public double getAngleC() {
-		return Math.toDegrees(Math.acos(((coteBC*coteBC) + (coteAC * coteAC) - (coteAB * coteAB)) / (2 * coteBC * coteAC))) ;
+		return Math.round(Math.toDegrees(Math.acos(((coteBC*coteBC) + (coteAC * coteAC) - (coteAB * coteAB)) / (2 * coteBC * coteAC)))*10000)/10000.0 ;
 	}
 
 	/**
